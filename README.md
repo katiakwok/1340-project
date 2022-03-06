@@ -1,5 +1,6 @@
 # 1340-project
-project
+# group114
+
 Topic: a text-based story-telling game
 
 Name: Chung Cheuk Man
