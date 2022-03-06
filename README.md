@@ -18,5 +18,6 @@ Description: In this game, players are required to escape from the castle.
 Some instructions for the game: 
 Players can only go to the next room by passing the initial room.   
 When players meet a monster, they must fight with the monster, or else they will die and the game ends.
+Players can quit the game at any time.
 
 Features:
