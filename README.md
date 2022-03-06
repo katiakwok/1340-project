@@ -10,4 +10,4 @@ UID: 3035927934
 
 Game description and basic rules:
 
-Background: 
+Background: An adventure game happened in middle ages. Players can choose their own characters. 
