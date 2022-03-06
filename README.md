@@ -14,3 +14,5 @@ Game description and basic rules:
 Background: An adventure game happened in middle ages. Players can choose their own characters. 
 
 Description: In this game, players are required to escape from the castle.
+
+Some instructions for the game: Players can only go to the next room by passing the initial room.   
