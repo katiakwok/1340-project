@@ -1,6 +1,7 @@
 # 1340-project
 project
-3035928079
-Chung Cheuk Man
-Kwok Katia
-3035927934
+Topic: a text-based story-telling game
+Name: Chung Cheuk Man
+UID: 3035928079
+Name: Kwok Katia
+UID: 3035927934
