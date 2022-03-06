@@ -12,4 +12,4 @@ Game description and basic rules:
 
 Background: An adventure game happened in middle ages. Players can choose their own characters. 
 
-Description: In this game, players are required to
+Description: In this game, players are required to escape from the castle.
