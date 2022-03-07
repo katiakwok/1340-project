@@ -49,7 +49,7 @@ The program encompass the following coding elements:
 The program will be saved in multiple files. The main cpp files are:
 - main.cpp: the main logic of the game
 - preGame.cpp: covers assisting game set-ups such as intialization, saving and loading functions, etc.
-- playGame.cpp: mainl the walking mode and the fighting mode of the game.
+- playGame.cpp: mainly the walking mode and the fighting mode of the game.
 Besides the above files, there will be many .txt files for UI and file I/O used, as well as Makefile and ultiple header files.
 
 C/C++ libraries:
