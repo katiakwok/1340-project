@@ -19,21 +19,22 @@ Description: In this game, players are required to escape from the castle.
 
 Some instructions for the game: 
 Players can only go to the next room by passing the initial room.   
-When players meet a monster, they must fight with the monster, or else they will die and the game ends.
-Players can quit the game at any time.
+When players meet a monster, they can fight with or escape from the monster.
+If players choose to escape, they may escape successfully or risk receiving damage from the monsters.
+Players can quit the game at any time and retrive the last game one was in.
 
 Features:
 The program encompass the following coding elements:
 1.Generation of random game sets or events:
-- The characters in the castle are randomly generated in any position.
+- The characters in the castle are randomly generated in any room of a fixed room.
 - The doors of each room are randomly generated in a fixed range of position.
 - The attack power of the player and the monster are in a random range.
 - The tools of players received are randomly distributed.
 
 2. Data structures for storing game status:
-- Integer(life value, attack power value, magic level)
+- Integer(life value, attack power value, magic level, experience)
 - Vector (list of tools that the player currently has)
-- String (tool type, descreption etc.), 
+- String (tool type, description etc.), 
 - 3 structs (item, position, status) tracking tool information, position in the castle as well as player and monster status respectively.
 
 3. Dynamic memory management:
