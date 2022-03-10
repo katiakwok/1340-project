@@ -37,7 +37,7 @@ The program encompass the following coding elements:
 - int(money,loan)
 - char array(cards)
 - string(story)
-- vector(status until last game)
+-array(status until last game)
 
 
 3. Dynamic memory management:
