@@ -19,7 +19,7 @@ Description: In this game, players are going to play blackjack.
 
 Some instructions for the game: 
 blackjack is a game that each player betting who get set of cards that is closest to 21. 
-Players will be in certain games of blackjack and given $1000 at the start.
+Players will be in certain games of blackjack and given $1000 at the beginning of the game.
 One can choose to loan or not after each game.
 if one lose all the money i.e. $0, one must get a loan from the mafia and pay the loan after 5 rounds. Or else, one will be excruciated and killed by mafia!
 Each player will put a bet to start the game. Then one will draw 2 cards.
@@ -41,12 +41,12 @@ The program encompass the following coding elements:
 
 
 3. Dynamic memory management:
-- At the beginning of the game,  the tools the player has is empty. In the game whenever the player wins, it will be put into the vector. 
+- At the beginning of the game,  $1000 is given to each players. In the game whenever the player wins, it will be put into the array. 
 - In the story mode, the size of the vector is returned to show the money and the progress that the player currently has.
 
 4. File input/output (e.g., for loading/saving game status):
-- In the walking mode, player can choose to escape at any time. The entire game will thus be saved into several files tracking the player's status, current castle information etc.
-- At the beginning of the game, player can choose to start by the previous game, or to start a new game.
+- During the game, player can choose to quit at any time. The money or loan of the player will thus be saved into several files.
+- The player can start a new game at anytime with the money or loan stored in the latest game.
 
 5. Program codes in multiple files:
 The program will be saved in multiple files. The main cpp files are:
