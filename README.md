@@ -1,7 +1,7 @@
 # 1340-project
 # group114
 
-Topic: a text-based story-telling game
+Topic: a text-based game
 
 Group members:
 
