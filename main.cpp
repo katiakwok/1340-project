@@ -1,24 +1,26 @@
 
 #include <iostream>
+#include <vector>
 #include "../header/flow.hpp"
 
 using namespace std;
 
-
-
-
 int main(){
+    std::vector<record> records;
+    loadornew(records);
     int choice;
     cout<<"welcome to blackjack!\n If this is your first time playing, please click 3 to check out the story!"<<endl;
-    
     do{
         menu();
         cin>>choice;
+        cout<<"--------------------------------------------"<<endl;
+        
         switch (choice){
             case(1):
-                play();
+                play(records);
                 break;
             case(2):
+                show(records);
                 break;
             case(3):{
                 story();
@@ -33,6 +35,7 @@ int main(){
                 break;
             case(5):
                 cout<<"saving the game"<<endl;
+                save(records,records.back().money,records.back().debt,records.back().due,records.back().hasDebt);
                 break;
             case(6):
                 cout<<"quitting the game"<<endl;
