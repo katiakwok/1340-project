@@ -50,6 +50,7 @@ void askLoan(std::vector<record> &records) {
     cout << "Due after " << records.back().due << " rounds starting from loan date" <<endl;
     cout << "Interest rate : 1.5" << endl;
 }
+
 void postgame(std::vector<record> records,int bet){
     if(records.back().hasDebt==0){
         save(records,records.back().money+bet,records.back().debt,records.back().due,records.back().hasDebt);
@@ -142,7 +143,7 @@ void play(std::vector<record> &records) {
     }
 
     if (records.back().hasDebt==1 && records.back().due-1==0 && records.back().debt > 0) {
-            cout << "You are being chased by the gang! " << endl;
+            cout << "\nYou are being chased by the gang! " << endl;
             cout << "oh no you run so slow!" << endl;
             cout << "YOU DIED!" << endl;
             records.clear();
@@ -157,6 +158,7 @@ void play(std::vector<record> &records) {
         else if (records.back().hasDebt==1 && records.back().due>0 && records.back().debt>0){
             save(records,records.back().money+bet,records.back().debt*1.5,records.back().due-1,records.back().hasDebt);
             cout << "Due after " << records.back().due << " rounds starting from loan date" <<endl;    
+            
         }
         if (records.back().money<=0){
                 cout<<"you are broke! You must borrow money!"<<endl;
@@ -164,6 +166,24 @@ void play(std::vector<record> &records) {
         }
         else{
             int respond;
+            if (records.back().hasDebt==true){
+                cout<< "--------------------------------------------\nDo you want to pay debt?\n1:yes\n2:no\n--------------------------------------------"<<endl;
+                cin>>respond;
+                if (respond == 1){
+                    cout<<"input the amount of loan you want to pay: ";
+                    int pay;
+                    cin>>pay;
+                    while (pay <0 || pay >records.back().money){
+                        cout<<"invalid input! please try again: ";
+                        cin>>pay;
+                    }
+                    save(records,records.back().money-pay,records.back().debt-pay,records.back().due,records.back().hasDebt);
+                    if (records.back().debt==0 && records.back().money>0){
+                        cout<<"you have paid all of your debt!"<<endl;
+                        save(records,records.back().money,0,0,false);
+                    }
+                }
+            }
             cout<<"--------------------------------------------\nwant to borrow some money?\n1:yes\n2:no\n--------------------------------------------\ninput your option: ";
             cin>>respond;
             cout<<"--------------------------------------------"<<endl;
@@ -202,8 +222,6 @@ void save(std::vector<record>& records,int money,int debt,int due,bool hasDebt){
     }
     record Newrecord(money,debt,due,hasDebt);
     records.push_back(Newrecord);
-    cout<<records.back().money<<' '<<records.back().debt<<' '<<records.back().due<<' '<<records.back().hasDebt<<endl;
-
     fout<<records.back().money<<' '<<records.back().debt<<' '<<records.back().due<<' '<<records.back().hasDebt<<endl;
     
     fout.close();
@@ -219,7 +237,7 @@ void loadornew(vector<record>& records){
     ifstream fin;
     fin.open("save.txt");
     if ( fin.fail() || fin.peek() == std::ifstream::traits_type::eof() ) {
-        cout << "--------------------------------------------\nSorry cant open the file. starting new career\n--------------------------------------------"<< endl;
+        cout << "--------------------------------------------\nSorry cant open the file. starting new career...\n--------------------------------------------"<< endl;
         save(records,1000,0,0,0);
     }
     else{
