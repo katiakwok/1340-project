@@ -29,8 +29,8 @@ int main(){
             case(4):
                 cout<<endl;
                 cout<<"credit"<<endl;
-                cout<<"Chung Cheuk Man | UID: u3592807 | githubname:Maktub0630"<<endl;
-                cout<<" | UID:  | githubname:"<<endl;
+                cout<<"Chung Cheuk Man | UID: 3035928079 | githubname:Maktub0630"<<endl;
+                cout<<"Kwok Katia | UID: 3035927934 | githubname:katiakwok"<<endl;
                 cout<<endl;
                 break;
             case(5):
