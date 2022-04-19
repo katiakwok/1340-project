@@ -6,7 +6,7 @@
 #include <vector>
 #include <sstream>
 #include "../header/flow.hpp"
-#include "../header/card.cpp"
+
 using namespace std;
 
 void story(){
