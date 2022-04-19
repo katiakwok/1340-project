@@ -4,9 +4,9 @@
 #include <random>
 #include <string>
 #include <vector>
-#include <sstream>
+#include <iomanip>
+#include "../header/card.hpp"
 #include "../header/flow.hpp"
-
 using namespace std;
 
 void story(){
@@ -52,53 +52,36 @@ void askLoan(std::vector<record> &records) {
     cout << "Interest rate : 1.5" << endl;
 }
 
-void postgame(std::vector<record> records,int bet){
-    if(records.back().hasDebt==0){
-        save(records,records.back().money+bet,records.back().debt,records.back().due,records.back().hasDebt);
-    }
-    else{
-        if (records.back().hasDebt==1 && records.back().due>0 && records.back().debt>0){
-            save(records,records.back().money+bet,records.back().debt*1.5,records.back().due-1,records.back().hasDebt);
-            cout << "Due after " << records.back().due << " rounds starting from loan date" <<endl;    
-        }
-        else if (records.back().due==0 && records.back().debt > 0) {
-            cout << "You are being chased by the gang! " << endl;
-            cout << "oh no you run so slow!" << endl;
-            cout << "YOU DIED!" << endl;
-            records.clear();
-            //back to main
-        }
-    }
-}
-int hit(int game){
-    srand(time(NULL));
-    int card=rand()%10 + 1;
-    game+=card;
-    return game;
-}
-int deal(int dealer, string *dealAction){
+
+int deal(int dealer, string *dealAction,int dealerHand[]){
     if (dealer<=15){
-        dealer=hit(dealer);
+        dealer+=hit(dealerHand);
     }
     else if (dealer > 15){
         *dealAction="stand";
     }
     return dealer;
 }
+int showone (int firstcard){
+    if (firstcard%13+1>10){
+        return 10;
+    }
+    return firstcard%13+1;
+}
 
 void play(std::vector<record> &records) {
-    int bet;
+    int bet,roundcount=2;
     cout<<"input your bet: ";
     cin>>bet;
     while (bet<1 || records.back().money <bet){
         cout<<"invalid input\n please input again: ";
         cin>>bet;
     }
-    srand(time(NULL));
-    int action;
-    int player=rand() % 21 + 1;
-    int dealer=rand() % 21 + 1;
-    cout<<"you: "<<player<<' '<<"dealer: "<<dealer<<endl;
+    int action,playerHand[5],dealerHand[5],player=0,dealer=0;
+    player=playerhand(playerHand);
+    cout<<"\nyou: "<<player<<endl;
+    dealer=dealerhand(dealerHand);
+    cout<<"\ndealer: "<< showone(dealerHand[0])<<endl;
     string  dealAction;
     while (player<21 && dealer<21){
         cout<<"--------------------------------------------\nnumber of action: "<<endl;
@@ -110,24 +93,25 @@ void play(std::vector<record> &records) {
         cout<<"input the number of your action: ";
         cin>>action;
         cout<<"--------------------------------------------"<<endl;
-        dealer=deal(dealer,&dealAction);
+        dealer=deal(dealer,&dealAction, dealerHand);
         if (action==1){
-            player=hit(player);
+            player+=hit(playerHand);
         }
         else if (action==2){
             break;
         }
         else if (action==3){
             bet=bet*2;
-            player=hit(player);
-            cout<<player<<' '<<dealer<<endl;
+            player+=hit(playerHand);
             break;
         }
         if (action == 4 && dealAction =="stand"){
             break;
         }
-    cout<<"you: "<<player<<' '<<"dealer: "<<dealer<<endl;
+        cout<<"your point: "<<player<<endl;
+        cout<<"dealer: "<< showone(dealerHand[0])<<" + some other points"<<endl;
     }
+
     if (player==dealer){
         cout<<"tie!"<<endl;
         bet=0;
@@ -136,11 +120,11 @@ void play(std::vector<record> &records) {
         if (player>21){
             cout<<"BUST!"<<endl;
         }
-        cout<<"YOU LOSE "<<bet<<'!'<<endl;
+        cout<<"YOU LOSE "<<bet<<" dollar!"<<endl;
         bet=-1*bet;
     }
     else if (player==21 || dealer>21|| (dealer<21 && player <21 && player >dealer)) {
-        cout<<"YOU WIN "<<bet<<'!'<<endl;
+        cout<<"YOU WIN "<<bet<<" dollar!"<<endl;
     }
 
     if (records.back().hasDebt==1 && records.back().due-1==0 && records.back().debt > 0) {
@@ -229,7 +213,20 @@ void save(std::vector<record>& records,int money,int debt,int due,bool hasDebt){
 }
 
 void show(std::vector<record>& records){
-    cout<<"money: "<<records.back().money<<" debt: "<<records.back().debt<<" due: "<<records.back().due<<" hasdebt: "<<records.back().hasDebt<<endl;
+    string has;
+    if (records.back().hasDebt==0){
+        has="no";
+    }
+    else{
+        has="yes";
+    }
+    cout<<"record: "<<endl;
+    cout << "----------------------------------------------------------------" << endl;
+    cout << "|"<<setw(10)<<"Money"<<" | "<<setw(10)<<"have you got any debt?"<<" | "<<setw(10)<<"Debt"<<" | "<<setw(10)<<"Due"<<" |" << endl;
+    cout << "----------------------------------------------------------------" << endl;
+    cout<<"|"<<setw(10)<<records.back().money<<" | "<<setw(22)<<has<<" | "<<setw(10)<<records.back().debt<<" | "<<setw(10)<<records.back().due<<" |"<<endl;
+    cout << "----------------------------------------------------------------" << endl;
+
 }
 
 
@@ -238,7 +235,7 @@ void loadornew(vector<record>& records){
     ifstream fin;
     fin.open("save.txt");
     if ( fin.fail() || fin.peek() == std::ifstream::traits_type::eof() ) {
-        cout << "--------------------------------------------\nSorry cant open the file. starting new career...\n--------------------------------------------"<< endl;
+        cout << "--------------------------------------------\nOh hey. starting new career...\n--------------------------------------------"<< endl;
         save(records,1000,0,0,0);
     }
     else{
