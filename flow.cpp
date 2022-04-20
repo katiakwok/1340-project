@@ -5,8 +5,8 @@
 #include <string>
 #include <vector>
 #include <iomanip>
-#include "../header/card.hpp"
-#include "../header/flow.hpp"
+#include "card.hpp"
+#include "flow.hpp"
 using namespace std;
 
 void story(){
@@ -36,7 +36,7 @@ void clear(){
 }
 void askLoan(std::vector<record> &records) {
     if (records.back().money <= 0) {
-        cout << "You lost all your money! You must loan" << endl;  
+        cout << "You lost all your money! You must loan" << endl;
     }
     cout << "How much do you want to loan?\n input your loan: ";
     int loan,maxloan=100000, readcount = 5;
@@ -46,7 +46,7 @@ void askLoan(std::vector<record> &records) {
         cin>>loan;
     }
     save(records,records.back().money+loan,loan,readcount,true);
-    
+
     cout << "Loan successful !" << endl;
     cout << "Due after " << records.back().due << " rounds starting from loan date" <<endl;
     cout << "Interest rate : 1.5" << endl;
@@ -96,6 +96,10 @@ void play(std::vector<record> &records) {
         dealer=deal(dealer,&dealAction, dealerHand);
         if (action==1){
             player+=hit(playerHand);
+            roundcount++;
+            if (roundcount==5){
+                break;
+            }
         }
         else if (action==2){
             break;
@@ -111,7 +115,7 @@ void play(std::vector<record> &records) {
         cout<<"your point: "<<player<<endl;
         cout<<"dealer: "<< showone(dealerHand[0])<<" + some other points"<<endl;
     }
-
+    cout<<"\ndealer: "<< dealer<<endl;
     if (player==dealer){
         cout<<"tie!"<<endl;
         bet=0;
@@ -142,8 +146,8 @@ void play(std::vector<record> &records) {
         }
         else if (records.back().hasDebt==1 && records.back().due>0 && records.back().debt>0){
             save(records,records.back().money+bet,records.back().debt*1.5,records.back().due-1,records.back().hasDebt);
-            cout << "Due after " << records.back().due << " rounds starting from loan date" <<endl;    
-            
+            cout << "Due after " << records.back().due << " rounds starting from loan date" <<endl;
+
         }
         if (records.back().money<=0){
                 cout<<"you are broke! You must borrow money!"<<endl;
@@ -208,7 +212,7 @@ void save(std::vector<record>& records,int money,int debt,int due,bool hasDebt){
     record Newrecord(money,debt,due,hasDebt);
     records.push_back(Newrecord);
     fout<<records.back().money<<' '<<records.back().debt<<' '<<records.back().due<<' '<<records.back().hasDebt<<endl;
-    
+
     fout.close();
 }
 
