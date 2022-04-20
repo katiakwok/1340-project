@@ -1,0 +1,195 @@
+welcome to blackjack!
+ If this is your first time playing, please click 3 to check out the story!
+menu:
+1: play
+2: show your record
+3: read the story
+4: credit
+5: save game
+6: quit the game
+--------------------------------------------
+enter your number of choice: 2
+--------------------------------------------
+record:
+----------------------------------------------------------------
+|     Money | have you got any debt? |       Debt |        Due |
+----------------------------------------------------------------
+|      1122 |                     no |          0 |          0 |
+----------------------------------------------------------------
+menu:
+1: play
+2: show your record
+3: read the story
+4: credit
+5: save game
+6: quit the game
+--------------------------------------------
+enter your number of choice: 3
+--------------------------------------------
+You are a loser and has nothing but to gamble everyday.
+This is your only way to get rid of the poor status.
+All you have is 1000HKD. You will act as a player of blackjack in Macau casino.
+If you lose all your money, you may get a loan from the gang to keep gambling or you may choose to quit the game.
+--------------------------------------------
+menu:
+1: play
+2: show your record
+3: read the story
+4: credit
+5: save game
+6: quit the game
+--------------------------------------------
+enter your number of choice: 1
+--------------------------------------------
+input your bet: 122
+8♠ A♦
+you: 9
+3♠ **
+dealer: 3
+--------------------------------------------
+number of action:
+1:hit
+2:surrender
+3:double down
+4:stand
+--------------------------------------------
+input the number of your action: 1
+--------------------------------------------
+your point: 19
+dealer: 3 + some other points
+
+dealer: 23
+YOU WIN 122 dollar!
+--------------------------------------------
+want to borrow some money?
+1:yes
+2:no
+--------------------------------------------
+input your option: 2
+--------------------------------------------
+want to play or going back to menu?
+1:play
+2:menu
+--------------------------------------------
+input your option: 1
+--------------------------------------------
+input your bet: 122
+K♣ 8♠
+you: 18
+K♣ **
+dealer: 10
+--------------------------------------------
+number of action:
+1:hit
+2:surrender
+3:double down
+4:stand
+--------------------------------------------
+input the number of your action: 4
+--------------------------------------------
+
+dealer: 20
+YOU LOSE 122 dollar!
+--------------------------------------------
+want to borrow some money?
+1:yes
+2:no
+--------------------------------------------
+input your option: 2
+--------------------------------------------
+want to play or going back to menu?
+1:play
+2:menu
+--------------------------------------------
+input your option: 1
+--------------------------------------------
+input your bet: 122
+3♠ 9♥
+you: 12
+2♣ **
+dealer: 2
+--------------------------------------------
+number of action:
+1:hit
+2:surrender
+3:double down
+4:stand
+--------------------------------------------
+input the number of your action: 1
+--------------------------------------------
+your point: 22
+dealer: 2 + some other points
+
+dealer: 19
+BUST!
+YOU LOSE 122 dollar!
+--------------------------------------------
+want to borrow some money?
+1:yes
+2:no
+--------------------------------------------
+input your option: 2
+--------------------------------------------
+want to play or going back to menu?
+1:play
+2:menu
+--------------------------------------------
+input your option: 2
+--------------------------------------------
+menu:
+1: play
+2: show your record
+3: read the story
+4: credit
+5: save game
+6: quit the game
+--------------------------------------------
+enter your number of choice: 2
+--------------------------------------------
+record:
+----------------------------------------------------------------
+|     Money | have you got any debt? |       Debt |        Due |
+----------------------------------------------------------------
+|      1000 |                     no |          0 |          0 |
+----------------------------------------------------------------
+menu:
+1: play
+2: show your record
+3: read the story
+4: credit
+5: save game
+6: quit the game
+--------------------------------------------
+enter your number of choice: 3
+--------------------------------------------
+You are a loser and has nothing but to gamble everyday.
+This is your only way to get rid of the poor status.
+All you have is 1000HKD. You will act as a player of blackjack in Macau casino.
+If you lose all your money, you may get a loan from the gang to keep gambling or you may choose to quit the game.
+--------------------------------------------
+menu:
+1: play
+2: show your record
+3: read the story
+4: credit
+5: save game
+6: quit the game
+--------------------------------------------
+enter your number of choice: 4
+--------------------------------------------
+
+credit
+Chung Cheuk Man | UID: u3592807 | githubname:Maktub0630
+Kwok Katia | UID: 3035927934 | githubname:katiakwok
+
+menu:
+1: play
+2: show your record
+3: read the story
+4: credit
+5: save game
+6: quit the game
+--------------------------------------------
+enter your number of choice: 6
+--------------------------------------------
+quitting the game
