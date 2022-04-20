@@ -71,7 +71,7 @@ Some libraries will be used in our program, listed as follows:
 #include <ctime>: time(0) to set random seed
 
 Compilation and execution of instructions:
-Step 1: Download the source folder
+Step 1: Download the all the files in the github
 Step 2: unzip it on any directory
 step 3: set that directory to be the current one
 Step 4: type `make blackjack` to construct the program in the terminal
