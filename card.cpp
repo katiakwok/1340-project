@@ -2,7 +2,7 @@
 #include <iomanip>
 #include <string>
 #include <vector>
-#include "../header/card.hpp"
+#include "card.hpp"
 #define SPADE "\xE2\x99\xA0"
 #define CLUB "\xE2\x99\xA3"
 #define HEART "\xE2\x99\xA5"
@@ -28,20 +28,20 @@ void DealHand(int cards[])
 
 void PrintHand(int cards[], string num[],string suits[])
 {
-    for (int i=0; i<2; i++){
-        int number = cards[i]%13; 
+    for (int i=0; i<5; i++){
+        int number = cards[i]%13;
         num[i] = number;
         if (number == 0)
             num[i]="A";
         if (number >0 && number <10)
-            num[i]= to_string(number+1); 
+            num[i]= to_string(number+1);
         if (number == 10)
             num[i]="J";
         if (number == 11)
             num[i]="Q";
         if (number == 12)
             num[i]="K";
-        int suit = cards[i]/13; 
+        int suit = cards[i]/13;
         suits[i] = suit;
         if (suit == 0)
             suits[i]=SPADE;
@@ -56,11 +56,11 @@ void PrintHand(int cards[], string num[],string suits[])
 
 int sumup( int hand[])
 {
-    int points;
+    int points=0;
     for (int i=0;i<2;i++){
         if (hand[i]>=0 && hand[i]<52){
             if (hand[i]%13==0){
-                points+=11;
+                points+=1;
             }
             else if(hand[i]%13==10 || hand[i]%13==11 || hand[i]%13==12){
                 points+=10;
@@ -128,6 +128,8 @@ int hit(int hand[5]){
     else{
         point=card%13+1;
     }
+    string num[5];
+    string suits[5];
+    PrintHand(hand,num,suits);
     return point;
 }
-
